@@ -26,7 +26,7 @@ class Bootstrap:
     bg_warning = '\33[43m'
     bg_info = '\33[45m'
     bg_light = '\33[47m'
-    ng_white = '\33[107m'
+    bg_white = '\33[107m'
     bg_dark = '\33[40m'
 
     # Font style
@@ -36,50 +36,76 @@ class Bootstrap:
     selected = '\33[7m'
     blink = '\33[7m'
 
+    __color_key = {
+        'primary': primary,
+        'blue': primary,
+        'success': success,
+        'green': success,
+        'danger': danger,
+        'red': danger,
+        'yellow': warning,
+        'warning': warning,
+        'info': info,
+        'violet': info,
+        'light': light,
+        'white': white,
+        'dark': dark,
+        'black': dark,
+        'default': default
+    }
+
+    __bgcolor_key = {
+        'primary': bg_primary,
+        'blue': bg_primary,
+        'success': bg_success,
+        'green': bg_success,
+        'danger': bg_danger,
+        'red': bg_danger,
+        'yellow': bg_warning,
+        'warning': bg_warning,
+        'info': bg_info,
+        'violet': bg_info,
+        'light': bg_light,
+        'white': bg_white,
+        'dark': bg_dark,
+        'black': bg_dark,
+    }
+
+    __style_key = {
+        'b': bold,
+        'bold': bold,
+        'i': italics,
+        'italics': italics,
+        'u': underline,
+        'underline': underline,
+        's': selected,
+        'selected': selected,
+        'blink': blink
+    }
+
     def get_color(self, color):
         '''
             Returns the font color code for a given color name
         '''
-        color_key = {
-            'primary': self.primary,
-            'blue': self.primary,
-            'success': self.success,
-            'green': self.success,
-            'danger': self.danger,
-            'red': self.danger,
-            'yellow': self.warning,
-            'warning': self.warning,
-            'info': self.info,
-            'violet': self.info,
-            'light': self.light,
-            'white': self.white,
-            'dark': self.dark,
-            'black': self.dark,
-            'default': self.default
-        }
-        return color_key[color]
         try:
-            return color_key[color]
+            return self.__color_key[color]
         except KeyError:
             return ''
 
-    def get_bg(self, color):
+    def get_bgcolor(self, color):
         '''
             Returns the background color code for a given color name
         '''
-        bg_key = {}
         try:
-            return bg_key[color]
+            return self.__bgcolor_key[color]
         except KeyError:
             return ''
 
     def colorize(self, text='', color='', bg=''):
-        return self.get_color(color) + self.get_bg('jasjds') + text + self.default
+        return self.get_color(color) + self.get_bg(bg) + text + self.default
 
+    def new_color(self, color_name, color_code):
+        self.__color_key[color_name] = color_code
 
-# DRIVERS
-color = Bootstrap()
-print(color.colorize("hello", "red"))
-print(color.colorize("hello", "info"))
-print(color.colorize("hello", "green"))
-print(color.colorize("hello", "blue"))
+    def new_bgcolor(self, color_name, color_code):
+        self.__bgcolor_key[color_name] = color_code
