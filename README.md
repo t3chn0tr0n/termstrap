@@ -10,7 +10,7 @@ Import in your code: `import Bootstrap from css`.
 
 Create an object: `text = Bootstrap()`
 
-Use as: `text.colorize(<string>, <color>)` or `text.format(<string>, < b / i / u >)` or `text.start_block(<color>, <fomatter>)
+Use as: `text.colorize(<string>, <color>)` or `text.format(<string>, < b / i / u >)` or `text.start_block(<color>, <formatter>)
 
 ```Python
 
