@@ -8,6 +8,8 @@ HOME: https://github.com/t3chn0tr0n/py_css/
 
 class Bootstrap:
 
+    default = '\33[0m'
+
     # Font color
     primary = '\33[34m'
     success = '\33[92m'
@@ -17,7 +19,6 @@ class Bootstrap:
     light = '\33[37m'
     white = '\33[97m'
     dark = '\33[90m'
-    default = '\33[0m'
 
     # Bg color
     bg_primary = '\33[44m'
@@ -101,8 +102,15 @@ class Bootstrap:
         except KeyError:
             return ''
 
-    def colorize(self, text='', color='', bg=''):
+    def colorize(self, text, color='', bg=''):
         return self.get_color(color) + self.get_bg(bg) + text + self.default
+
+    def stylize(self, text, *styles):
+        applied_styles = ''
+        for style in styles:
+            applied_styles += self.__style_key(style)
+        applied_styles.strip()
+        return applied_styles + text + self.default()
 
     def new_color(self, color_name, color_code):
         self.__color_key[color_name] = color_code

@@ -12,14 +12,14 @@ Import in your code: `import Bootstrap from css`.
 
 Create an object: `text = Bootstrap()`
 
-Use as: `text.colorize(<string>, <color>)` or `text.format(<string>, < b / i / u >)` or `text.start_block(<color>, <formatter>)`
+Use as: `text.colorize(<string>, <color>)` or `text.stylize(<string>, < b / i / u >)` or `text.start_block(<color>, <formatter>)`
 
 ## Accessible functions/methods
 
 Simple ones :
 
 - `colorize()` : Takes a text, font color(optional) and bgcolor(optional).
-- `stylize()` : Takes a text, style name (bold, italics, underline and blink). Passing only initials work (e.g. 'b' for bold)
+- `stylize()` : Takes a text, style name (bold, italics, underline and blink). Passing only initials work (e.g. 'b' for bold). You can pass multiple styles simultaneously.
 
 _INFO_ : blink is experimental, if it doesn't work, it does not break anything! Therefore no shorthand for it!
 
@@ -32,6 +32,14 @@ Lil advanced ones:
 
 _WARNING_ : Only use `new_color()` or `new_bgcolor()` if you know what you are doing!
 
+## Accessible Variables
+
+All colors can be accessed by the class instance. Overwriting them will/may break functionality.
+
+- **Color variables**: Bootstrap names - primary, danger, warning, etc.
+- **Background color variables**: bg_primary, bg_danger, bg_warning, etc.
+- **Style variables**: bold, italics, underline, selected, blink
+
 ## Example
 
 ```Python
@@ -43,9 +51,9 @@ _WARNING_ : Only use `new_color()` or `new_bgcolor()` if you know what you are d
     print(text.colorize("THIS IS blue", "primary")) # blue will also work.
 
     # Using stylize to format text- bold(b), italics(i), underline(u), selected(s), blink
-    print(text.stylize("A BOLD move", "b")) # bold also works in place of b
+    print(text.stylize("A BOLD move", "bold")) # b also works in place of bold
     print(text.stylize("Slightly slanted", "i"))
-    print(text.stylize("Have a look at me", "u"))
+    print(text.stylize("More the merrier", 'b', 'u', 's', 'i'))
 
     # You can also combine colors and formats:
     print(text.stylize(text.colorize("This is bold in red"), 'b'))
