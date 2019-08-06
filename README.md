@@ -40,7 +40,7 @@ All colors can be accessed by the class instance. Overwriting them will/may brea
 - **Background color variables**: bg_primary, bg_danger, bg_warning, etc.
 - **Style variables**: bold, italics, underline, selected, blink
 
-## FUNCTIONS
+## More Utility Functions
 THESE ARE NOT MEMBERS OF BOOTSTRAP CLASS. NO NEED FOR INSTANCE CREATION. just import and use.
 - **printc**: Like standard print(). Except: Does not have flush and file params. Have color param, takes name of the color. style param, takes a list or tuple of all styles. bgcolor param, takes name of the bgcolor!
 - **hide_cursor**: Hides cursor in the console
