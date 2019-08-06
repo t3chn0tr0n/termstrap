@@ -72,7 +72,7 @@ THESE ARE NOT MEMBERS OF BOOTSTRAP CLASS. NO NEED FOR INSTANCE CREATION. just im
     # Using the printc
     printc("RED text in *BOLD*", color='red', style=('b'))
     printc("[1,2,3,4]", color='warning', style=('b', 'u'), sep='***') # yellow text, styled bold and underlined, seperated by - ***
-    printc("a", "b", "cdf", color="primary")
+    printc("a", "b", "cdf", color="primary", end='') # print multiple strings and specify end param as none, ie. no newline at end!
 ```
 
 _IMPORTANT_: Info is not the same color as bootstrap info, its violet!
