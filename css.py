@@ -4,9 +4,15 @@ AUTHOR: Avik Mukherjee
 LICENSE: MIT, Copyright (c) 2019 Avik Mukherjee
 HOME: https://github.com/t3chn0tr0n/py_css/
 '''
+from ctypes import windll
+import sys
 
 
 class Bootstrap:
+    def __init__(self):
+        if sys.platform == 'win32':
+            kernel32 = windll.kernel32
+            kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
     default = '\33[0m'
 
@@ -35,7 +41,7 @@ class Bootstrap:
     italics = '\33[3m'
     underline = '\33[4m'
     selected = '\33[7m'
-    blink = '\33[7m'
+    blink = '\33[5m'
 
     __color_key = {
         'primary': primary,
@@ -102,18 +108,65 @@ class Bootstrap:
         except KeyError:
             return ''
 
+    def get_style(self, style):
+        '''
+            Returns the style code for a given style
+        '''
+        try:
+            return self.__style_key[style]
+        except KeyError:
+            return ''
+
     def colorize(self, text, color='', bg=''):
-        return self.get_color(color) + self.get_bg(bg) + text + self.default
+        return self.get_color(color) + self.get_bgcolor(bg) + text + self.default
 
     def stylize(self, text, *styles):
         applied_styles = ''
         for style in styles:
-            applied_styles += self.__style_key(style)
+            applied_styles += self.__style_key[style]
         applied_styles.strip()
-        return applied_styles + text + self.default()
+        return applied_styles + text + self.default
 
     def new_color(self, color_name, color_code):
         self.__color_key[color_name] = color_code
 
     def new_bgcolor(self, color_name, color_code):
         self.__bgcolor_key[color_name] = color_code
+
+
+def hide_cursor():
+    '''
+    Hides the cursor in the console
+    '''
+    if sys.platform == 'win32':
+        kernel32 = windll.kernel32
+        kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+    sys.stdout.write("\033[?25l")
+
+
+def show_cursor():
+    '''
+    Enables the cursor in the console
+    '''
+    sys.stdout.write("\033[?25h")
+
+
+def printc(*objects, style=(), color='default', bgcolor='default', sep=' ', end='\n'):
+    '''
+    params: objects[, style, color, bgcolor, sep, end].
+
+    * Pass objects like standard print() takes. sep and end have same useage.
+
+    * style MUST BE ITERABLE, i.e. list or tuple, where each element is a style.
+
+    * color is font color.
+
+    * bgcolor is background color.
+    '''
+    b = Bootstrap()
+    print(b.get_color(color) + b.get_bgcolor(bgcolor), end="")
+    for s in style:
+        print(b.get_style(s), end="")
+    for obj in objects:
+        print(obj, end='')
+    print(b.default, end=end, sep=sep,)

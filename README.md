@@ -68,9 +68,8 @@ _IMPORTANT_: Info is not the same color as bootstrap info, its violet!
 
 ## KNOWN ISSUES
 
-1. This DOES NOT work in Windows CMD. Use PowerShell, Git Bash(using MinGW Terminal) or VScode terminal. The problem is with cmd, it does not support colors like these.
-
-2. Style - blink DOES NOT work on Windows.
+1. Style - blink DOES NOT work in most cases.
+2. Windows cmd only supports color in windows 10 (v1511 onwards)!
 
 ## INSPIRATION
 
