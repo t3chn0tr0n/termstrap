@@ -1,4 +1,4 @@
-# py_css
+# termstrap
 
 a css file (Bootstrap like) for unicode text formatting in python console output :)
 
