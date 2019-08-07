@@ -4,11 +4,9 @@ a css file (Bootstrap like) for unicode text formatting in python console output
 
 ## USAGE
 
-(Will try to add a pip installable, later. As of now, this is it:)
+Install it using pip: `pip install termstrap`
 
-Copy the css.py file to your project repo.
-
-Import in your code: `import Bootstrap from css`.
+Import in your code: `import css` or ` from css import Bootstrap, printc`.
 
 Create an object: `text = Bootstrap()`
 
