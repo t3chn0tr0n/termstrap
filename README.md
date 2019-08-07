@@ -40,10 +40,16 @@ All colors can be accessed by the class instance. Overwriting them will/may brea
 - **Background color variables**: bg_primary, bg_danger, bg_warning, etc.
 - **Style variables**: bold, italics, underline, selected, blink
 
+## More Utility Functions
+THESE ARE NOT MEMBERS OF BOOTSTRAP CLASS. NO NEED FOR INSTANCE CREATION. just import and use.
+- **printc**: Like standard print(). Except: Does not have flush and file params. Have color param, takes name of the color. style param, takes a list or tuple of all styles. bgcolor param, takes name of the bgcolor!
+- **hide_cursor**: Hides cursor in the console
+- **show_cursor**: Restores cursor visibility.
+
 ## Example
 
 ```Python
-    import  Bootstrap from css # make sure you have downloaded the css.py file in the same folder/directory
+    from css import  Bootstrap, printc # make sure you have downloaded the css.py file in the same folder/directory
     text = Bootstrap()
 
     # Using colorize to color
@@ -62,6 +68,11 @@ All colors can be accessed by the class instance. Overwriting them will/may brea
     text.start_block('red', bold=True)
     # Any text in this clock will be printed in RED, and BOLD by default
     text.end_block()
+    
+    # Using the printc
+    printc("RED text in *BOLD*", color='red', style=('b'))
+    printc("[1,2,3,4]", color='warning', style=('b', 'u'), sep='***') # yellow text, styled bold and underlined, seperated by - ***
+    printc("a", "b", "cdf", color="primary", end='') # print multiple strings and specify end param as none, ie. no newline at end!
 ```
 
 _IMPORTANT_: Info is not the same color as bootstrap info, its violet!
