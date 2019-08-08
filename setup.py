@@ -1,10 +1,17 @@
 from setuptools import setup
+from os import path
+
+
+with open('README.md', encoding='utf-8') as f:
+    long_description = f.read()
 
 
 setup(
     name='termstrap',
-    version='1.2.0',
+    version='1.2.2',
     description='Terminal Bootstrap - A Python css file for unicode text formatting in python console output',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='t3chn0tr0n',
     author_email='technotron.avik@gmail.com',
     url='https://github.com/t3chn0tr0n/termstrap',
