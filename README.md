@@ -79,6 +79,7 @@ _IMPORTANT_: Info is not the same color as bootstrap info, its violet!
 
 1. Style - blink DOES NOT work in most cases.
 2. Windows cmd only supports color in windows 10 (v1511 onwards)!
+3. Italics wont work in Windows.
 
 ## INSPIRATION
 
