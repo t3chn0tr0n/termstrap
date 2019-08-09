@@ -12,7 +12,7 @@ class Bootstrap:
     def __init__(self):
         if sys.platform == 'win32':
             kernel32 = windll.kernel32
-            kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 8)
+            kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
     default = '\33[0m'
 
