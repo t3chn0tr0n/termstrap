@@ -8,7 +8,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='termstrap',
-    version='1.2.3',
+    version='1.2.4',
     description='Terminal Bootstrap - A Python css file for unicode text formatting in python console output',
     long_description=long_description,
     long_description_content_type='text/markdown',
