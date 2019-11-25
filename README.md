@@ -6,7 +6,7 @@ a css file (Bootstrap like) for unicode text formatting in python console output
 
 Install it using pip: `pip install termstrap`
 
-Import in your code: `import css` or ` from css import Bootstrap, printc`.
+Import in your code: `import css` or `from css import Bootstrap, printc`.
 
 Create an object: `text = Bootstrap()`
 
@@ -39,7 +39,9 @@ All colors can be accessed by the class instance. Overwriting them will/may brea
 - **Style variables**: bold, italics, underline, selected, blink
 
 ## More Utility Functions
+
 THESE ARE NOT MEMBERS OF BOOTSTRAP CLASS. NO NEED FOR INSTANCE CREATION. just import and use.
+
 - **printc**: Like standard print(). Except: Does not have flush and file params. Have color param, takes name of the color. style param, takes a list or tuple of all styles. bgcolor param, takes name of the bgcolor!
 - **hide_cursor**: Hides cursor in the console
 - **show_cursor**: Restores cursor visibility.
@@ -66,7 +68,7 @@ THESE ARE NOT MEMBERS OF BOOTSTRAP CLASS. NO NEED FOR INSTANCE CREATION. just im
     text.start_block('red', bold=True)
     # Any text in this clock will be printed in RED, and BOLD by default
     text.end_block()
-    
+
     # Using the printc
     printc("RED text in *BOLD*", color='red', style=('b'))
     printc("[1,2,3,4]", color='warning', style=('b', 'u'), sep='***') # yellow text, styled bold and underlined, seperated by - ***
