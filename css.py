@@ -4,13 +4,13 @@ AUTHOR: Avik Mukherjee
 LICENSE: MIT, Copyright (c) 2019 Avik Mukherjee
 HOME: https://github.com/t3chn0tr0n/termstrap/
 '''
-from ctypes import windll
 import sys
 
 
 class Bootstrap:
     def __init__(self):
         if sys.platform == 'win32':
+            from ctypes import windll
             kernel32 = windll.kernel32
             kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
 
